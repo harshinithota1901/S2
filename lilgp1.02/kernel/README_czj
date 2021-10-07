@@ -1,0 +1,20 @@
+czj info:
+
+cgp-lil-gp 1.1.1/1.02 does
+
+  read constraints to limit search space
+  allow different weights for the remaining elements of mutation sets
+    which affect probabilities of mutating/selecting a given function/terminal
+  changes lil-gp 1.02 in a few ways
+    a) resets index members fo fset functions
+    b) allows to use depth ramp for both initialization and mutation
+       to specify the absolute minimal depths (in lil-gp smaller
+       depths were still possible in the grow mode)
+    c) crossover is reimplemented so that source trees are selected based 
+       on mutation set weights and the internal/external parameter
+
+Change from cgp1.1:
+       initialization and mutation/uniform mutation modified to 
+       never generate trees (if possible due to constraints) shorher than the
+       min depth ramp (NOTE: only if the corresponding parameter depth_abs
+       is set to true
